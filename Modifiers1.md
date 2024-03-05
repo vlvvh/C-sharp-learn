@@ -256,3 +256,27 @@ class DerivedClass2 : BaseClass
 - BaseClass 拥有私有受保护成员 myValue，DerivedClass1 尝试以两种方式访问该成员。
 - 通过 BaseClass 的实例第一次尝试访问 myValue 时会报错。 但如果尝试在 DerivedClass1 中将其用作 继承 的成员，则会成功。
 
+### 7. private readonly 修饰符组合     
+- 用来声明私有只读字段的修饰符组合。
+- 只能在其声明的类内部访问，并且其值只能在构造函数中或字段初始化时被赋值，之后不能再修改。
+```
+public class MyClass
+{
+    private readonly int myReadOnlyField;
+
+    public MyClass(int value)
+    {
+        myReadOnlyField = value; // 可以在构造函数中赋值
+    }
+
+    public void SomeMethod()
+    {
+        // 在类的内部可以访问 myReadOnlyField
+        int x = myReadOnlyField;
+        // 但无法修改它，下面的代码会引发编译错误
+        // myReadOnlyField = 10;
+    }
+}
+```
+- 在上面的示例中，’myReadOnlyField‘字段被声明为‘private readonly int’，因此只能在‘MyClass’类内部访问，并且只能在构造函数中进行初始化。
+- 在‘SomeMethod()’方法中，可以读取‘myReadOnlyField’的值，但不能修改它。
