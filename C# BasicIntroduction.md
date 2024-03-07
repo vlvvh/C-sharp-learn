@@ -58,7 +58,7 @@ C#是微软公司 (Microsoft)发布的一种 全新的、简单的、安全的�
 
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/b37e885d-72fa-4e10-80c6-e14e3ae058bb)    
 
->常变量最常见的作用
+>常变量最常见的作用 :arrow_heading_down:
 >>可以作为字面量的载体，一次性修改多处数值
 >>
 >>防止定义初始值后，被其他程序员修改。
@@ -230,5 +230,35 @@ C#是微软公司 (Microsoft)发布的一种 全新的、简单的、安全的�
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/c2114de6-44ac-4b0e-a21f-bbfba48b0a4e)   
 
 ### break与continue   
-
-
+#### 1、break 关键字    
+- break语句用于**立即退出循环**（例如，for、while、do-while循环或switch语句），并将控制流程传递到循环或switch语句之后的下一个语句。
+- 当条件满足时，使用break可以**提前终止循环**，即使循环的迭代条件并未完成。
+- 这对于在某些条件下需要提前退出循环的情况很有用。
+示例：
+```
+for (int i = 0; i < 10; i++)
+{
+    if (i == 5)
+    {
+        break; // 当 i 等于 5 时，立即退出循环
+    }
+    Console.WriteLine(i);
+}
+```
+#### 2、continue 关键字   
+- continue语句用于跳过当前迭代中剩余的代码，并开始下一次循环迭代。
+- 当某些条件满足时，使用continue可以使循环跳过当前迭代中的特定代码块。
+示例：
+```
+for (int i = 0; i < 10; i++)
+{
+    if (i % 2 == 0)
+    {
+        continue; // 如果 i 是偶数，则跳过当前迭代，进入下一次迭代
+    }
+    Console.WriteLine(i);
+}
+```
+:warning:总结:
+- break用于**完全退出**循环或switch语句。
+- continue用于**跳过当前迭代中的剩余代码**，开始下一次迭代。
