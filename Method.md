@@ -65,3 +65,43 @@ public static 数据类型 方法名（类型 变量1，类型 变量2...）
  :small_red_triangle:  注意：是否重载与返回值无关     
 
  
+### 方法参数修饰符   
+
+|关键字|实参必初始化|方法内可写|方法内必须赋值|
+|:---:|:--------:|:------:|:----------:|
+|ref|是|是|否|
+|in|是|否|否|
+|out|否|是|是|
+
+#### 1、ref 关键字（reference）   
+- 允许参数以引用传递的方式给到方法中；
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/21a4e9b2-c7a8-498a-afcd-797fa2009397)
+- 参数必须先**初始值**
+
+#### 2、in 关键字
+- 允许参数以引用传递的方式给到方法中；
+- **本参数只能读取，不能赋值**；
+- 传入到变量，一定会作为只读变量，在方法内部绝对不会被更改。
+~~~
+public static void doublelt(in int val)
+{
+      Console.WriteLine(val);
+}
+int a=10;
+doublelt(in a);
+~~~
+
+#### 3、out 关键字
+- 允许参数以引用传递的方式给到方法中；
+- **进入方法后，参数值被清空，必须重新赋值后使用** ；
+- 可以不初始化。
+~~~
+public static void doublelt(out int val)
+{
+     val=2;
+}
+int a;//可以赋值int a=10，也可以不赋值,到方法会被清空参数值
+doublelt(out a);
+~~~
+
+    
