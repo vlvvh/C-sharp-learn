@@ -229,6 +229,13 @@ C#是微软公司 (Microsoft)发布的一种 全新的、简单的、安全的�
 ### for循环语句    
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/c2114de6-44ac-4b0e-a21f-bbfba48b0a4e)   
 
+### foreach 循环语句
+- 格式：
+- ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/693f3398-3aad-4331-ad9b-11ccc12833b8)
+- 迭代当中的n不可以被赋值，属于 **【只读变量】**
+
+
+
 ### break与continue   
 #### 1、break 关键字    
 - break语句用于**立即退出循环**（例如，for、while、do-while循环或switch语句），并将控制流程传递到循环或switch语句之后的下一个语句。
