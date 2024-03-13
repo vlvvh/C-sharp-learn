@@ -145,3 +145,37 @@ int[,] arr = {
       }
 }
 ~~~
+#### 使用 foreach 循环 
+- 如果循环体内代码，不需知道当前元素的行标/列标，可以直接使用foreach进行遍历。
+  
+~~~
+foreach(int v in arr)
+           {
+               Console.WriteLine(v);
+           }
+~~~
+
+   
+## 6、锯齿数组 （JaggedArray）   
+- 内部**每个元素是数组**，而且每个元素**数组长度都可以不同**
+- 格式：
+  - 数据类型[]数组名=new 数据类型[数组元素个数][]；
+~~~
+ int[][] arr=new int[4][];//分配了一个装有4个数组的 数组
+
+          int[] arr0 = { 1, 2 };
+          int[] arr1 = { 1, 2, 3 };
+          int[] arr2 = { 4,5,6,7,8 };
+          int[] arr3 = { 4,5,6,7,8,9,12 };
+
+          arr[0] = arr0;//将 arr0 放入 arr 的第0个数组 里
+          arr[1] = arr1;
+          arr[2] = arr2;
+          arr[3] = arr3;
+          
+          Console.WriteLine(arr[0][1]);//结果为arr0的 2
+~~~
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/75d1b34c-07c9-48f2-a29a-f8d26f1339bb)
+
+
+ 
