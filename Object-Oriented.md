@@ -164,7 +164,96 @@ public class Player
    public string getName
    {
        get{return name;}  //获取name变量
-       set{name=value;}   //对name的值进行设置
+       set{name=value;}   //对name的值进行设置，传进来参数
    }
 }
 ~~~
+#### 属性用途（一）   
+- 属性值验证：通过set/get方法，对传入的数据进行参数合法性的验证。
+~~~
+ public class Student
+   {
+       private int score=0;
+         //情况1:用于对数据进行校验
+       public int Score
+       {
+           get { return score; }
+           set    //设置条件
+           {
+               if (value < 0 || value > 100)
+               {
+                   Console.WriteLine("学生的分数必须在0-100之间！"); //value为<0||>100时反应
+                   return;
+               }
+               score = value;
+           }
+       }
+   }
+
+   internal class Program
+   {
+       static void Main(string[] args)
+       {
+           Student s = new Student();
+           s.Score = 80;
+           Console.WriteLine(s.Score);
+
+       }
+   }
+~~~
+#### 属性用途（二）
+- 字段访问形式：通过get/set方法，可以给到用户合适的数据格式
+~~~
+需求：设计Clock类（字段：秒seconds）
+- 访问方法：
+- Hours，设置/获取当前是多少小时
+- Minutes，设置/获取当前是多少分钟
+   class Clock
+    {
+        public double seconds;
+
+        public double Hours
+        {
+            get { return seconds / 3600; }
+            set { seconds = value * 3600; }
+        }
+
+        public double Minutes
+        {
+            get { return seconds / 60; }
+            set { seconds = value * 60; }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Clock c = new Clock();
+            c.Hours = 2;
+            Console.WriteLine(c.seconds);
+            Console.WriteLine(c.Hours);
+        }
+
+    }
+~~~
+
+
+#### 属性省略
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/73cbbe9e-7544-470c-b21d-79dad3ce9807)    
+:small_blue_diamond: 通过属性省略字段下，不可省略get字段；
+
+:small_blue_diamond: 通过属性省略字段下，可以省略set字段；
+
+:small_blue_diamond: set字段省略后，可以通过**构造方法**赋予初值。
+~~~
+class Player
+{
+   public int Money
+   {
+      get;    //类内其他方法不可对Money赋值，只能读取
+   }
+   public Player(){Money=100;}  //可以通过构造方法赋予初值
+}
+~~~
+
