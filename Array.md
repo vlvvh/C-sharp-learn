@@ -154,7 +154,12 @@ foreach(int v in arr)
                Console.WriteLine(v);
            }
 ~~~
-
+- 【*foreach 工作原理*】:
+  - 简化了对集合和数组的遍历，它隐藏了迭代器的实现细节，使得代码更加简洁和易读。
+  - 对于实现了 IEnumerable 或 IEnumerable<T> 接口的集合或数组，foreach 循环会自动调用该集合或数组的迭代器，逐个访问其中的元素。
+- 【*foreach 内存管理*】:
+  - foreach 循环每次只会获取一个元素，并在循环结束后将其释放。
+  - 对于实现了 IEnumerable 接口的集合，foreach 循环 使用集合的 GetEnumerator() 方法获取一个迭代器，并使用 MoveNext() 方法逐个访问集合中的元素。
    
 ## 6、锯齿数组 （JaggedArray）   
 - 内部**每个元素是数组**，而且每个元素**数组长度都可以不同**
@@ -178,4 +183,92 @@ foreach(int v in arr)
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/75d1b34c-07c9-48f2-a29a-f8d26f1339bb)
 
 
- 
+***
+ ## ArrayList 、 LinkedList 、 List
+ ### 1、ArrayList
+ - 是一个动态数组，可以自动调整大小容纳到其中的元素。
+ - 存储任何类型的对象，支持通过索引快速访问。因此它不是类型安全的，需要进行类型转换。
+~~~
+using System.Collections;
+ArrayList arrayList = new ArrayList();   //创建ArrayList对象
+
+arrayList.Add("Hello");                  //添加元素，可以添加任何类型 这里添加了string
+arrayList.Add(52);                       //int
+arrayList.Add(new Myclass());            //创建了一个新的 MyClass 类的实例对象，并存入arrayList里
+
+object element = arrayList[0];           //访问第一个元素
+
+foreach (object obj in arrayList)        //遍历
+{
+    Console.WriteLine(obj);
+}
+
+~~~
+
+### 2、LinkedList 
+-  是双向链表的实现，每个元素都包含对前一个和后一个元素的引用。
+-  LinkedList 不支持通过索引进行快速访问元素，需要通过遍历链表来查找元素。
+-  :small_red_triangle: LinkedList 是在需要频繁插入和删除操作，但不需要随机访问元素的情况下使用的一种数据结构。
+~~~
+LinkedList<int> linkedList = new LinkedList<int>();  //创建 LinkedList 对象，只能添加<这个括号里面的类型元素>
+
+LinkedList.AddLast(10);                              //因为创建 LinkedList 对象时设定了 int 类型，只可以添加 int 类型
+LinkedList.AddFrist(20);
+
+foreach (int i in linkedList)                        //使用 foreach 遍历
+{ 
+    Console.WriteLine(i);
+}
+
+LinkedListNode<int> node = linkedList.Find(10);      // 找到值为 10 的节点
+linkedList.AddAfter(node, 15);                       // 在节点 10 后插入值为 15 的节点
+
+linkedList.Remove(20);                               // 使用 Remove 移除值为 20 的节点
+~~~
+
+
+### 3、List
+- 一种泛型集合类型。
+- 与 ArrayList 类似，但它只能存储指定类型的元素，更安全。
+~~~
+List<int> numbers = new List<int>();                       // 创建一个存储整数int的 List 实例,需要存什么类型就在<这里写入类型>
+
+numbers.Add(10);                                           //使用 Add 方法向 List 中添加单个元素
+numbers.Add(20);
+
+List<int> moreNumbers = new List<int>() { 30, 40, 50 };    //使用 AddRange 方法向 List 中添加一个集合的元素
+numbers.AddRange(moreNumbers);
+
+int firstNumber = numbers[0];                              // 访问获取第一个元素
+
+foreach (int num in numbers)                               //使用 foreach 遍历
+{
+    Console.WriteLine(num);
+}
+~~~
+
+:warning: 区别总结:    
+|特性|ArrayList|LinkedList|List<T>|
+|---|---------|----------|-------|
+|数据结构|动态数组|双向链表|动态数组|
+|元素类型|'object'|泛型类型|泛型类型|
+|安全性|较低，可以存储任何类型对象|较高，只能存<T>里类型|较高，只能存<T>里类型|
+|随机访问|快速|慢|快|
+|使用场景|随机访问需求较多，插入/删除较少的情况|插入/删除需求较多，随机访问较少的情况|随机访问和插入/删除的需求均匀分布的情况|
+
+
+
+***
+## 堆
+- 二叉树，一定要有两个叉，要从左到右上到下填
+- 完全树
+- 值：最大堆/最小堆才是成熟的堆
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/c44de22c-1267-40dc-afed-0c2ba45f7e30)
+### 堆的实现
+#### 1、数组
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/9d7bab42-633c-4104-850f-bd9660d504b0)
+- 已知数组A和索引i，A[i]的父节点为 A[(i-1)/2]
+- 已知数组A和索引i，A[i]的左子节点为 A[2*i+1]
+- 已知数组A和索引i，A[i]的右子节点为 A[2*i+2]
+- 
+  :bangbang:  i 为索引，不是值
