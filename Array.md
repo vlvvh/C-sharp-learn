@@ -264,11 +264,45 @@ foreach (int num in numbers)                               //使用 foreach 遍�
 - 完全树
 - 值：最大堆/最小堆才是成熟的堆
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/c44de22c-1267-40dc-afed-0c2ba45f7e30)
-### 堆的实现
-#### 1、数组
-![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/9d7bab42-633c-4104-850f-bd9660d504b0)
-- 已知数组A和索引i，A[i]的父节点为 A[(i-1)/2]
-- 已知数组A和索引i，A[i]的左子节点为 A[2*i+1]
-- 已知数组A和索引i，A[i]的右子节点为 A[2*i+2]
-- 
-  :bangbang:  i 为索引，不是值
+#### 1、堆的关键部分操作
+:large_orange_diamond: 插入操作:即往堆中加入一个元素
+~~~
+int heap[MIN],size;       //设置一个数组MAXN存放堆 size为当前堆大小（还未插入节点堆的大小）
+void insert（int x）      //插入一个数
+{
+    heap[++size]=x;      //在堆的末尾插入一个数
+    int pos=size;        //通过pos来标记插入数
+    while(pos！=1)       //不断的向上递归
+    {
+       if(heap[pos]>=heap[pos/2])  //heap[pos]是子节点的参数，heap[pos/2]是父节点的参数，若子节点比父节点大，已满足小根堆的性质，可以break
+       break;
+       swap（heap[pos],heap[pos/2]; //如果子节点没有比父节点大，就需要将子节点和父节点交换
+       pos/=2;                      //同时要交换当前节点的位置，实现不断的向上递归
+    }
+}
+~~~     
+
+:large_orange_diamond: 删除操作:即往堆中取出并删除一个元素
+~~~
+删除堆顶元素示例
+int heap[1001],length;    //设置一个数组存放堆，长度用length表示
+void del()                //del函数实现删除
+{
+   heap[1]=heap[length];  //将堆底元素heap[length0]赋值到堆顶heap[1]
+   length--;
+   int now=1;             //堆尾元素当前所在当前位置，初始化为1
+   while(now*2 <=length)  //now*2为左子节点，左子节点heap[now*2]<=length的话不断向下递归，直到为最下层
+   {
+      int next=now*2;     //讲左子节点赋值去next
+      if(now*2+1<=length&&heap[now*2+1]<heap[now*2])  //右子节点heap[now*2+1]<=长度 并且 右子节点<左子节点时
+         next=now*2+1;                                //就将右子节点赋值到next
+      if(heap[now]>heap[next])                        //如果当前位置>next，就要进行向下交换
+         swap(heap[now]>heap[next])                   //交换节点位置
+      else break;                                     //如果不是上面几种情况，可以结束
+      now=next;                                       //更新当前节点位置
+    }
+}
+~~~
+
+   
+
