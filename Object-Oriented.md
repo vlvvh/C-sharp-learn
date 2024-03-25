@@ -147,6 +147,8 @@ namespace MethodParamDescriptor
 >> :small_orange_diamond: protected internal
 >> 
 >> :small_orange_diamond: public             : 任何方法都可对其访问/修改
+>> 
+***
 
 ### 属性与字段   
 ~~~
@@ -320,8 +322,17 @@ class Player
 >> 4️⃣ 子类中通过 new 关键词现实隐藏父类同签名成员方法；(不写new也可以，默认为子类）
 >>
 >> 5️⃣ 子类中方法与父类方法构成重载，不隐藏父类方法
+>>
 
-### 2、继承中的访问权限与多继承
+#### 继承成员中的访问权限
+|权限修饰符|同类|子类|外部累|
+|:---:|:---:|:---:|:---:|
+|public| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+|protected| :heavy_check_mark: | :heavy_check_mark: | ❌ |
+|private| :heavy_check_mark: |❌|❌|
+
+#### 多层继承
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/e9a96e00-51fa-4708-9819-8672b7d8f091)
 
 
    
