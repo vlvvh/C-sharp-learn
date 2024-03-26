@@ -324,7 +324,7 @@ class Player
 >> 5️⃣ 子类中方法与父类方法构成重载，不隐藏父类方法
 >>
 
-#### 继承成员中的访问权限
+### 2、继承成员中的访问权限
 |权限修饰符|同类|子类|外部累|
 |:---:|:---:|:---:|:---:|
 |public| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -334,5 +334,39 @@ class Player
 #### 多层继承
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/e9a96e00-51fa-4708-9819-8672b7d8f091)
 
+### 3、继承中构造方法的使用
+- 当实例化一个子类对象的时候，首先调用其父类构造方法，在调用子类构造方法
+- 当实例化一个子类对象的时候，如果父类只含有带参构造方法，则需要显式调用其父类的构造方法
+~~~
+//如果没有手动声明构造方法，系统默认生成无参构造方法
 
-   
+    class Father 
+    {
+        public int age = 0;
+        public Father(int age)
+        {
+            this.age = age;
+            Console.WriteLine("Father Constructor");
+        }
+    }
+    class Son : Father
+    {
+        public Son():base(30)       //利用：base（填值）调用Father构造方法
+        {
+            Console.WriteLine("Son Constructor");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Son son = new Son();    //如无手动构造方法，则调用默认无参构造函数
+            Console.WriteLine(son.age);
+        }
+    }
+}
+~~~
+> 显示调用父类的构造方法
+>> 1、子类构造方法如果 显式调用 父类的某一个构造方法，则遵从其调用选择
+>> 
+>> 2、子类构造方法 没有显示调用 父类的任何构造方法，则默认寻找其 **无参构造方法**
