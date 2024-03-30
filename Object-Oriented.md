@@ -370,3 +370,41 @@ class Player
 >> 1、子类构造方法如果 显式调用 父类的某一个构造方法，则遵从其调用选择
 >> 
 >> 2、子类构造方法 没有显示调用 父类的任何构造方法，则默认寻找其 **无参构造方法**
+
+### 4、继承中的多态（polymorphism）
+- 通过父类调用子类对应方法的实现
+- 各类方法概念：
+  - 1️⃣ 方法重载（overload）：参数个数/类型/顺序
+  - 2️⃣ 方法隐藏（hide）：子类继承父类，子类有与父类相同签名的方法，则会隐藏起方法，二者并存
+  - 3️⃣ 方法重写（override）：多态，通过父类类型对象，调用子类对象当中对应方法的实现
+    - 细节：子类当中的 override方法 会’抹杀‘掉父类当中的对应 virtual方法
+~~~
+class Pet
+{
+   virtual public void shout()
+   {
+       Console.WriteLine("Pet")
+   }
+}
+class Cat:Pet
+{
+   override public void shout()
+   {
+        Console.WriteLine("miao")
+   }
+}
+class Dog:Pet
+{
+   override public void shout()
+   {
+       Console.WriteLine("wang")
+   }
+}
+class Master
+{
+    public void play(Pet pet)
+    {
+        pet.shout();
+    }
+}
+~~~
