@@ -1,5 +1,4 @@
-# C#高级面向对象
-## 一、Object 类
+# Object 类
 - 对于c#中所有的 class ，默认的父类或最终基类都是Object类（ System 命名空间下，简写为 Object ）
   
 |System.Object 提供的方法|是否可以重写|
@@ -9,7 +8,7 @@
 |int GetHashCode();|:heavy_check_mark:|
 |bool Equals();|:heavy_check_mark:|
 
-### 1、string ToString();
+## 1、string ToString();
 - 用于‘打印’当前对象的信息，即将当前对象的字段们都转化为字符串，以一定格式打印输出
 - 默认情况：打印输出当前对象类型全名（ namespace + class ）
 - 用途：
@@ -46,7 +45,7 @@ namespace SeniorObject
     }
 }
 ~~~
-### 2、System.Type GetType();
+## 2、System.Type GetType();
 - 用于获取当前对象的类型信息（反射） 如类名、命名空间等
 > Type
 >> FullName：完整类型名，命名空间+类名
@@ -88,14 +87,14 @@ namespace SeniorObject
     }
 }
 ~~~
-### 3、int GetHashCode();
+## 3、int GetHashCode();
 - 用于获取对象的哈希码（ 哈希码 是通过将对象的字段或属性的值，转换为一个整数来生成的 ）
 - 重写这个方法时，确保满足以下几点：
   - 对于相等的对象，它们的哈希码应该相同。
   - 如果 Equals() 方法返回 true，则它们的哈希码必须相同。
   - 但是，如果 Equals() 方法返回 false，它们的哈希码不一定不同，尽管大多数情况下应该是不同的，以提高哈希表的性能。
 
-### 4、bool Equals();
+## 4、bool Equals();
 - 用于判断两个对象是否相等，与“==”一致
 - ==：值类型的 值 相同，引用类型的 地址 相同，字符串的 字符 相同
 ~~~
@@ -136,7 +135,7 @@ namespace SeniorObject
     }
 }
 ~~~
-### 5、装箱与拆箱
+## 5、装箱与拆箱
 - 装箱：将 值类型 转换为 Object类型 的过程
 - 拆箱：从 Object 中提取 值类型 的过程
 ~~~
@@ -172,4 +171,5 @@ int j=（int）o;
     }
 ~~~
 - 内存原理
-- 
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/db58003e-c345-4eba-81ae-d89418095170)
+
