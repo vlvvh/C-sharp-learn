@@ -87,6 +87,57 @@ namespace SeniorObject
     }
 }
 ~~~
+### （ 1 ）反射知识点
+- 反射是一种强大的机制，允许在运行时动态地获取类型信息、调用成员和操作对象。
+- 反射的主要类位于 System.Reflection 命名空间中。
+#### 获取类型信息：
+~~~
+using System;
+using System.Reflection;
+
+class Program
+{
+    static void Main()
+    {
+        Type type = typeof(string);        // typeof 是一个关键字，用于获取指定类型的 Type 对象，这里指定的类是（string）
+        Console.WriteLine(type.FullName);  // 获取全名（ namespace+class ）
+    }
+}
+~~~
+####  创建对象实例并调用方法：
+~~~
+class Program                                  
+{
+    static void Main()
+    {
+        Type type = typeof(Console);           // 获取类型信息,用于获取制定类型Type对象，这里指定的类是（Console）
+
+        object consoleInstance = Activator.CreateInstance(type);                          // 通过反射创建了一个 string 类型的实例并将其存储在 consoleInstance 变量中
+
+        MethodInfo writeMethod = type.GetMethod("WriteLine", new[] { typeof(string) });   // 使用了反射来调用 Console.WriteLine 方法
+        writeMethod.Invoke(consoleInstance, new object[] { "Hello, Reflection!" });
+    }
+}
+~~~
+#### 动态加载程序集：
+~~~
+class Program
+{
+    static void Main()
+    {
+        Assembly assembly = Assembly.LoadFile(@"path\to\your\assembly.dll");    // 加载程序集
+
+        Type type = assembly.GetType("Namespace.ClassName");                    // 加载程序集
+
+        object instance = Activator.CreateInstance(type);                       // 创建对象实例
+
+        MethodInfo method = type.GetMethod("MethodName");                       // 调用方法
+        method.Invoke(instance, null);
+    }
+}
+
+~~~
+
 ## 3、int GetHashCode();
 - 用于获取对象的哈希码（ 哈希码 是通过将对象的字段或属性的值，转换为一个整数来生成的 ）
 - 重写这个方法时，确保满足以下几点：
