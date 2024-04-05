@@ -1,7 +1,7 @@
 # 委托（ Delegate ）
 - 是一种 *引用类型变量*，用于存储某个方法的 *引用地址*。
 - 定义格式：
-  - public delegate 返回值类型 委托类型名字（参数类型1 参数名字，参数类型2，参数名字...）;
+  - public delegate 返回值类型 委托类型名字（参数类型1  参数名字，参数类型2  参数名字...）;
 
 ~~~
 namespace SeniorDelegate
