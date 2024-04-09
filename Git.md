@@ -39,6 +39,12 @@ git config --global user.name "runoob"
 git config --global user.email test@runoob.com 
 ~~~
 根据实际情况配置用户名和邮箱📮
+- 查看git的配置信息
+~~~
+git config --list
+~~~
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/dcb21757-b709-4353-8142-2d83e02ce520)
+
 
 ### 2.git init 初始化仓库
 - git init 是使用 Git 的第一个命令。
