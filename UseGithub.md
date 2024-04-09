@@ -20,7 +20,7 @@
 ## 6 分支名字以 小写字母或小写字母-组成【name 或者 name- project】
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/6e0fbb44-8fd8-4c08-9b82-2b976d1ad14f)
 
-## 7 当项目发生变动时，会建文件存放到咱村去等待输入“提交信息”并提交
+## 7 当项目发生变动时，会建文件存放到暂存区等待输入“提交信息”并提交
 ![截屏2024-04-08 20 54 33](https://github.com/vlvvh/C-sharp-learn/assets/160467935/cd460671-d932-43dc-8cb8-e52cd5bf7d43)
 
 提交完成✅，远程仓库同步变更
