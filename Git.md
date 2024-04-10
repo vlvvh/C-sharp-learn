@@ -147,7 +147,7 @@ git remote remove new-origin
 ~~~
 - 修改指定远程仓库的 URL 为“https://github.com/user/new-repo.git”
 ~~~
-git emote set-url origin https://github.com/user/new-repo.git
+git remote set-url origin https://github.com/user/new-repo.git
 ~~~
 - 显示远程仓库origin的详细信息，包括 URL 和跟踪分支
 ~~~
