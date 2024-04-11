@@ -41,7 +41,7 @@
 
 ## 代码示例
 以下是一个简单的示例，同步和异步之间的区别，假设我们使用 HttpClient 进行网络请求
-在这两个示例中，用了 HttpClient 发送了一个 GET 请求到 https://jsonplaceholder.typicode.com/posts/1，并打印了响应内容。    
+在这两个示例中，用了 HttpClient 发送了一个 GET 请求到 https://jsonplaceholder.typicode.com/posts/1 ，并打印了响应内容。    
 
 - 同步示例：
 ~~~
@@ -76,7 +76,7 @@ using System.Threading.Tasks;
 
 class Program
 {
-    static async Task Main()
+    static async Task Main()  // 使用 async 的关键字，表明这是一个异步函数
     {
         Console.WriteLine("Start");
 
