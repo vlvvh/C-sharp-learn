@@ -25,6 +25,7 @@
 
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/9a3d4e3c-3224-401b-b814-4167314de3c3)
 
+
 ## 异步
 现在假设你是一位厨师，餐厅是异步运行的。当服务员接收到顾客的点菜后，他会将菜单递给你。但与此同时，你可以在炒菜的同时接受其他菜品的订单，并开始炒其他菜品，而不必等待第一份菜炒好。一旦一份菜炒好了，你会将其放在出菜台上，服务员再将其上菜给顾客。   
 
@@ -37,3 +38,61 @@
 > 
 > 4.服务员拿起宫保鸡丁并上菜给顾客
 >
+
+## 代码示例
+以下是一个简单的示例，同步和异步之间的区别，假设我们使用 HttpClient 进行网络请求
+在这两个示例中，用了 HttpClient 发送了一个 GET 请求到 https://jsonplaceholder.typicode.com/posts/1，并打印了响应内容。    
+
+- 同步示例：
+~~~
+using System;
+using System.Net.Http;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Start");
+
+        // 创建一个 HttpClient 实例
+        HttpClient client = new HttpClient();
+
+        // 发送同步 GET 请求
+        HttpResponseMessage response = client.GetAsync("https://jsonplaceholder.typicode.com/posts/1").Result;
+
+        // 获取响应内容并打印
+        string content = response.Content.ReadAsStringAsync().Result;
+        Console.WriteLine(content);
+
+        Console.WriteLine("End");
+    }
+}
+~~~
+- 异步示例：
+~~~
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+class Program
+{
+    static async Task Main()
+    {
+        Console.WriteLine("Start");
+
+        // 创建一个 HttpClient 实例
+        HttpClient client = new HttpClient();
+
+        // 发送异步 GET 请求，使用 await 关键字等待任务的完成
+        HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/1");
+
+        // 获取响应内容并打印
+        string content = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(content);
+
+        Console.WriteLine("End");
+    }
+}
+~~~
+### 示例🌰总结：
+在同步示例中，我们使用了.Result 属性来阻塞主线程直到任务完成，而在异步示例中，我们使用了 await 关键字 来等待任务的完成，但是并不会阻塞主线程，允许其他任务继续执行。
