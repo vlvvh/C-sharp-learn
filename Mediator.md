@@ -187,7 +187,10 @@ namespace 中介者模式的实现
 使中介者对象变得十分复杂，难于维护管理
 
 ⚠️如不使用Mediator会构成如下图的网状结构
+
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/c112f247-b7e4-4f10-9104-07fc01da2ed9)
+
 使用后会如下图：
+
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/4e6414d9-e876-463e-96d4-118dc7b9c14a)
 
