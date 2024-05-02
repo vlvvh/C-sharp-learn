@@ -2,7 +2,7 @@
 Program.cs 文件通常是 .NET Core 项目的入口点文件，它包含了程序的入口方法 Main    
 文件地址：https://gitlab.sjfood.us/solar/practiceforserena/-/blob/master/src/PracticeForSerena.Api/Program.cs   
 
-## 一、代码解读
+## 一、解读 Program 代码
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/f38ecf20-bb67-4e91-bdf3-23ff16d4228a)
 ### 1.创建配置对象
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/95b66faf-5ffa-4607-80a3-08a9a62e3814)
