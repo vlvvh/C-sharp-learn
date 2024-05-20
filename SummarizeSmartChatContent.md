@@ -77,5 +77,30 @@ Libraries -> Smarties.Core -> Services -> 20SystemData
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/abe965b5-88d9-4418-a816-76cda3e86e41)
 
 ### （6）DataProvider
-数据访问层，实现与数据库的交互
+- 数据访问层，实现与数据库的交互
+- 定义了智能聊天系统数据 提供器接口ISmartChatSystemDataProvider 和 它的实现类 SmartChatSystemDataProvider
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/adef86d5-3256-4166-b7f9-e10d8eddd847)
+
+接口 ISmartChatSystemDataProvider
+
+删除内容：DeleteSmartChatContentAsync方法用于根据contentId和collectionId删除智能聊天内容，可选参数forceSave决定是否强制保存更改，cancellationToken用于取消操作。
+
+添加内容：AddSmartChatContentAsync方法用于添加新的智能聊天内容到数据库。
+
+添加集合内容：AddSmartChatCollectionContentAsync方法用于添加智能聊天内容到特定的集合中。
+
+获取内容：GetSmartChatContentAsync方法用于根据条件异步获取智能聊天内容列表，支持分页查询，返回内容列表和总数量。
+
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/eb79f3d0-cd69-459f-a183-50535b7148bd)
+
+实现类 SmartChatSystemDataProvider
+
+删除内容实现：在DeleteSmartChatContentAsync中，首先通过连表查 SmartChatCollectionContent 找到与给定 contentId 的记录，然后根据 collectionId 和 forceSave 参数决定删除哪些记录，并最终保存更改到数据库。
+
+添加内容实现：AddSmartChatContentAsync 和 AddSmartChatCollectionContentAsync 方法通过插入新记录到数据库并保存更改，实现了内容的添加功能。
+
+获取内容实现：在 GetSmartChatContentAsync 方法中，首先构建了一个查询来关联 SmartChatCollectionContent 和 SmartChatContent 表，根据 collectionId 进行筛选，并按创建日期降序排序。接着计算总数Count，并根据分页参数进行跳过和取数据操作，最后使用AutoMapper将查询结果投影到DTO(SmartChatContentDto)并返回。
+
+## 3. 编写测试用例
+## 4. 实施接口测试
 
