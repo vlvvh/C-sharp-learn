@@ -107,6 +107,8 @@ Libraries -> Smarties.Core -> Services -> 20SystemData
 Test -> Smarties.IntegrationTests -> Services
 
 编写测试的用例，需要建立一些 unhappy case 进行测试
+
+测试的目的是验证智能聊天系统的某些功能，包括删除、获取和添加智能聊天内容
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/0f38a6b0-3031-409e-ab16-a2b8cdb4c2c5)
 
 
