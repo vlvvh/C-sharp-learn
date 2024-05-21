@@ -65,11 +65,13 @@ Facade -> Smarties.Api -> Controllers
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/ae77d998-f6d3-47a3-96c6-353beda305ef)
 
 Libraries -> Smarties.Core -> Handlers
+
 AddSmartChatContentCommandHandler 类负责处理添加智能聊天内容的命令。它通过调用智能聊天系统服务的异步方法来添加内容，并在处理完成后发布一个事件，最后返回一个响应对象，其中包含添加的内容数据。
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/ddfc0af3-78b0-45ae-b3e4-29bd95a16f0f)
 
 ### （5）Service
 定义业务逻辑，如查询、创建、更新或删除SmartChatContent。 
+
 Libraries -> Smarties.Core -> Services -> 20SystemData
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/816483cf-6c31-4982-82be-62dca53b6628)
 
@@ -102,5 +104,13 @@ Libraries -> Smarties.Core -> Services -> 20SystemData
 获取内容实现：在 GetSmartChatContentAsync 方法中，首先构建了一个查询来关联 SmartChatCollectionContent 和 SmartChatContent 表，根据 collectionId 进行筛选，并按创建日期降序排序。接着计算总数Count，并根据分页参数进行跳过和取数据操作，最后使用AutoMapper将查询结果投影到DTO(SmartChatContentDto)并返回。
 
 ## 3. 编写测试用例
+Test -> Smarties.IntegrationTests -> Services
+
+编写测试的用例，需要建立一些 unhappy case 进行测试
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/0f38a6b0-3031-409e-ab16-a2b8cdb4c2c5)
+
+
 ## 4. 实施接口测试
+运行测试，看看能不能测试成功。如果有错误需要 debug 断点后找出问题
+![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/888a46f9-10b8-4f65-a780-8c5d9901544e)
 
