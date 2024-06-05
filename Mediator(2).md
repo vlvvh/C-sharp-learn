@@ -149,7 +149,7 @@ public class PersonService : IPersonService
 }
 ~~~
 
-## 6.DataProvider 进行执行的操作，并返回执行结果给 Service 层
+## 6.DataProvider 进行具体的操作，并返回执行结果给 Service 层
 
 ~~~
 namespace PractiseForSerena.Core.Services.People;
