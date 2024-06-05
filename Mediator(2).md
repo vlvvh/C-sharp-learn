@@ -206,3 +206,21 @@ public class Person : IEntity
     public DateTimeOffset CreatTime { get; set; } = DateTimeOffset.UtcNow;
 }
 ~~~
+
+## 8.DTO
+🌟 DTO简单来说，就是需要前端向后端传输的数据。     
+DTO 的主要目的是解耦不同层之间的数据传输，以防止数据结构的复杂性扩散到整个系统。通过使用 DTO，我们可以选择性地暴露和传输需要的数据，而不是将整个实体对象传递到不同的层中。
+~~~
+namespace PractiseForSerena.Message.DTO;
+
+public class CreateOrUpdatePeopleDto
+{
+    public int Id { get; set; }
+    
+    public string FirstName { get; set; }
+    
+    public string LastName { get; set; }
+    
+    public DateTimeOffset CreateTime { get; set; }
+}
+~~~
