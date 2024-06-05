@@ -92,7 +92,7 @@ public class PeopleCreatedEvent : IEvent
     public string Result { get; set; }
 }
 ~~~
-### Event 也会有个对应的 Handler， PropleCreatedEvent
+### Event 也会有个对应的 Handler， PropleCreatedEventHandler
 
 这个🌰简单地返回一个已完成的任务，没有执行任何实际操作
 
