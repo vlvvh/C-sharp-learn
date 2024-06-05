@@ -186,7 +186,7 @@ public class PersonDataProvider : IPersonDataProvider
 ~~~
 
 ## 7.要与数据库交互的话，需要提前定义好数据表 Table
-在 MySQL 中 varchar 类型 要控制得比较安全要加一下 StringLength（50）
+在 MySQL 中 varchar 类型要加一下 StringLength（50），在实体类中使用 StringLength 的特性可以限制数据库字段长度
 ~~~
 [Table("people")]
 public class Person : IEntity
