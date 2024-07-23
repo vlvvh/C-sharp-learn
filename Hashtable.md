@@ -104,6 +104,88 @@ class Program
     ☑ 返回值：如果Hashtable包含带有指定的value的元素，则为true；否则为false。
 ~~~
 
+## 三、算法
+### 🤔什么是哈希算法？
+哈希算法将任意长度的输入数据转换为固定长度的输出数据（即哈希值）。
+这些算法在计算过程中涉及以下步骤：
+- 输入数据转换为字节数组：输入数据（通常是字符串）首先被转换为字节数组，因为哈希算法只能处理字节数据。
+- 计算哈希值：使用特定的哈希算法处理字节数组，生成固定长度的哈希值（也称为摘要或散列值）。
+- 将字节数组转换为十六进制字符串：为了便于阅读和存储，哈希值通常会转换为十六进制字符串表示。
+
+### 常见的哈希算法有：
+1. **MD5（Message-Digest Algorithm 5）**：虽然因为安全性问题，MD5已不再适用于安全敏感的应用，但因其快速和简单，仍然广泛用于文件校验等场景。
+2. **SHA（Secure Hash Algorithm）系列**：包括SHA-1、SHA-256、SHA-384和SHA-512等，SHA家族提供了更高的安全性，目前广泛用于数字签名和区块链等。
+3. **RIPEMD**：一种与MD5类似的哈希函数，有RIPEMD-128、RIPEMD-160等版本。
+4. **BLAKE2**：作为SHA-3竞赛的优秀选手，BLAKE2提供更快的速度和更好的安全性，有BLAKE2b和BLAKE2s两个变种。
+5. **SHA-3（Keccak）**：SHA-3是NIST（美国国家标准和技术研究所）于2012年选定的下一代哈希标准，设计时特别考虑了抗攻击的安全性。
+
+### 还是不太懂？举个🌰吧！
+我们以SHA-256算法为例，详细说明每一步的过程：
+#### 1️⃣ 输入数据转换为字节数组
+输入数据是一个字符串。在C#中，可以使用Encoding.UTF8.GetBytes(input)方法将字符串转换为字节数组。       
+UTF-8是一种常用的字符编码方式，可以将字符串中的每个字符转换为对应的字节。
+~~~
+string input = "Hello, World!";
+byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+~~~
+
+#### 2️⃣ 计算哈希值
+使用SHA-256算法计算哈希值。      
+C#提供了内置的SHA-256类，通过SHA256.Create()方法创建一个SHA-256实例，然后使用ComputeHash方法计算字节数组的哈希值。
+~~~
+using (SHA256 sha256 = SHA256.Create())
+{
+    byte[] hashBytes = sha256.ComputeHash(inputBytes);
+}
+~~~
+
+#### 3️⃣ 将字节数组转换为十六进制字符串
+可以使用StringBuilder来构建最终的字符串结果
+~~~
+StringBuilder sb = new StringBuilder();
+foreach (byte b in hashBytes)
+{
+    sb.Append(b.ToString("x2"));
+}
+string hash = sb.ToString();
+~~~
+
+#### ✅完整示例
+~~~
+using System;
+using System.Security.Cryptography;
+using System.Text;
+
+public class HashingExample
+{
+    public static string ComputeSHA256Hash(string input)
+    {
+        // 1. 将输入数据转换为字节数组
+        byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+
+        // 2. 使用SHA-256算法计算哈希值
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] hashBytes = sha256.ComputeHash(inputBytes);
+
+            // 3. 将字节数组转换为十六进制字符串
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in hashBytes)
+            {
+                sb.Append(b.ToString("x2"));
+            }
+            return sb.ToString();
+        }
+    }
+
+    public static void Main()
+    {
+        string input = "Hello, World!";
+        string hash = ComputeSHA256Hash(input);
+        Console.WriteLine($"SHA-256 Hash of '{input}': {hash}");
+    }
+}
+~~~
 
 ⚠️ps: 
 Hashtable类： https://learn.microsoft.com/zh-cn/dotnet/api/system.collections.hashtable?view=net-8.0
