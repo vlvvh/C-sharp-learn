@@ -33,4 +33,7 @@ Deploy 选最后一个，需要点进去里面去查到自己的版本号，不�
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/9d83ecee-d7fb-40e3-a79a-199beba7bb37)
 
 最后需要选择 Test => 完成✅
+
 ⚠️：核对自己的版本号
+
+发完测试，打开测试环境的Swagger看看能否正常打开‼️
