@@ -26,7 +26,9 @@ teamcity网址: https://teamcity.sjfood.us/project/Smarties?branch=mixture_v3&bu
 小章鱼 -> 在 Projects 里选择项目 -> Releases -> Channel 选择 Default 。    
 Version 填入在 teamcity 里 Run 完的版本号，+号改-号 。      
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/70517e7f-2c13-4167-b343-d04e2074e0ce)
-Deploy 选最后一个，需要 ☑️ 选择非正式的版本号 => 🆗        
+Deploy 选最后一个，需要点进去里面去查到自己的版本号，不可以直接输入❌
+
+需要 ☑️ 选择非正式的版本号 => 🆗        
 下一列也是填一样的‼️ 最后 Save 保存
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/9d83ecee-d7fb-40e3-a79a-199beba7bb37)
 
