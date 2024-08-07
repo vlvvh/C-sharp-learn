@@ -10,3 +10,5 @@ prd->正式环境
 4️⃣ 选择 jobs，查看是否成功。       
 可以用 control+F 搜索查询需要看的 job
 ![image](https://github.com/user-attachments/assets/5d743d17-da2b-4981-99aa-5c0adc476a18)
+
+⚠️：需要下载版本 6.1.10（其他不可）
