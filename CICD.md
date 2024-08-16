@@ -38,6 +38,13 @@ Deploy 选最后一个，需要点进去里面去查到自己的版本号，不�
 ![image](https://github.com/vlvvh/C-sharp-learn/assets/160467935/9d83ecee-d7fb-40e3-a79a-199beba7bb37)
 
 最后需要选择 Test => 完成✅
+![image](https://github.com/user-attachments/assets/7d7cb4df-96e9-4b1f-9bef-d7b95d67514e)
+
+![image](https://github.com/user-attachments/assets/fb4d8a0c-da61-4df5-8450-85bf7320adc7)
+
+![image](https://github.com/user-attachments/assets/14c33ed1-15d1-48e0-a6c3-0e370265e9c2)
+
+![image](https://github.com/user-attachments/assets/18b53987-7517-42c5-90a5-9d285d4f9368)
 
 ⚠️：核对自己的版本号
 
